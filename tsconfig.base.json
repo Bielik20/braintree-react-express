@@ -16,20 +16,24 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@braintree-react-express/api-interfaces": [
-        "libs/api-interfaces/src/index.ts"
+      "@braintree-react-express/@payment/gateway": [
+        "libs/@payment/gateway/src/index.ts"
       ],
-      "@braintree-react-express/api/config": ["libs/api/config/src/index.ts"],
-      "@braintree-react-express/payment/router": [
-        "libs/payment/router/src/index.ts"
+      "@braintree-react-express/@payment/component": [
+        "libs/@payment/component/src/index.ts"
       ],
-      "@braintree-react-express/payment/gateway": [
-        "libs/payment/gateway/src/index.ts"
+      "@braintree-react-express/@payment/router": [
+        "libs/@payment/router/src/index.ts"
       ],
-      "@braintree-react-express/payment/component": [
-        "libs/payment/component/src/index.ts"
+      "@braintree-react-express/@@api/routers": [
+        "libs/@@api/routers/src/index.ts"
       ],
-      "@braintree-react-express/api/routers": ["libs/api/routers/src/index.ts"]
+      "@braintree-react-express/@@api/config": [
+        "libs/@@api/config/src/index.ts"
+      ],
+      "@braintree-react-express/@payment/service": [
+        "libs/@payment/service/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

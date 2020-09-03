@@ -32,22 +32,22 @@
     "api": {
       "tags": []
     },
-    "api-interfaces": {
+    "@payment-gateway": {
       "tags": []
     },
-    "api-config": {
+    "@payment-component": {
       "tags": []
     },
-    "payment-router": {
+    "@payment-router": {
       "tags": []
     },
-    "payment-gateway": {
+    "@@api-routers": {
       "tags": []
     },
-    "payment-component": {
+    "@@api-config": {
       "tags": []
     },
-    "api-routers": {
+    "@payment-service": {
       "tags": []
     }
   }

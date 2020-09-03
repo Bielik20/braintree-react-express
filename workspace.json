@@ -165,9 +165,9 @@
         }
       }
     },
-    "api-interfaces": {
-      "root": "libs/api-interfaces",
-      "sourceRoot": "libs/api-interfaces/src",
+    "@payment-gateway": {
+      "root": "libs/@payment/gateway",
+      "sourceRoot": "libs/@payment/gateway/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -176,25 +176,25 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "libs/api-interfaces/tsconfig.lib.json",
-              "libs/api-interfaces/tsconfig.spec.json"
+              "libs/@payment/gateway/tsconfig.lib.json",
+              "libs/@payment/gateway/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**/*"]
+            "exclude": ["**/node_modules/**", "!libs/@payment/gateway/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/api-interfaces/jest.config.js",
-            "tsConfig": "libs/api-interfaces/tsconfig.spec.json",
+            "jestConfig": "libs/@payment/gateway/jest.config.js",
+            "tsConfig": "libs/@payment/gateway/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
       }
     },
-    "api-config": {
-      "root": "libs/api/config",
-      "sourceRoot": "libs/api/config/src",
+    "@payment-component": {
+      "root": "libs/@payment/component",
+      "sourceRoot": "libs/@payment/component/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -203,25 +203,25 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "libs/api/config/tsconfig.lib.json",
-              "libs/api/config/tsconfig.spec.json"
+              "libs/@payment/component/tsconfig.lib.json",
+              "libs/@payment/component/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/api/config/**/*"]
+            "exclude": ["**/node_modules/**", "!libs/@payment/component/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/api/config/jest.config.js",
-            "tsConfig": "libs/api/config/tsconfig.spec.json",
+            "jestConfig": "libs/@payment/component/jest.config.js",
+            "tsConfig": "libs/@payment/component/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
       }
     },
-    "payment-router": {
-      "root": "libs/payment/router",
-      "sourceRoot": "libs/payment/router/src",
+    "@payment-router": {
+      "root": "libs/@payment/router",
+      "sourceRoot": "libs/@payment/router/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -230,25 +230,25 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "libs/payment/router/tsconfig.lib.json",
-              "libs/payment/router/tsconfig.spec.json"
+              "libs/@payment/router/tsconfig.lib.json",
+              "libs/@payment/router/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/payment/router/**/*"]
+            "exclude": ["**/node_modules/**", "!libs/@payment/router/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/payment/router/jest.config.js",
-            "tsConfig": "libs/payment/router/tsconfig.spec.json",
+            "jestConfig": "libs/@payment/router/jest.config.js",
+            "tsConfig": "libs/@payment/router/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
       }
     },
-    "payment-gateway": {
-      "root": "libs/payment/gateway",
-      "sourceRoot": "libs/payment/gateway/src",
+    "@@api-routers": {
+      "root": "libs/@@api/routers",
+      "sourceRoot": "libs/@@api/routers/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -257,25 +257,25 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "libs/payment/gateway/tsconfig.lib.json",
-              "libs/payment/gateway/tsconfig.spec.json"
+              "libs/@@api/routers/tsconfig.lib.json",
+              "libs/@@api/routers/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/payment/gateway/**/*"]
+            "exclude": ["**/node_modules/**", "!libs/@@api/routers/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/payment/gateway/jest.config.js",
-            "tsConfig": "libs/payment/gateway/tsconfig.spec.json",
+            "jestConfig": "libs/@@api/routers/jest.config.js",
+            "tsConfig": "libs/@@api/routers/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
       }
     },
-    "payment-component": {
-      "root": "libs/payment/component",
-      "sourceRoot": "libs/payment/component/src",
+    "@@api-config": {
+      "root": "libs/@@api/config",
+      "sourceRoot": "libs/@@api/config/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -284,25 +284,25 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "libs/payment/component/tsconfig.lib.json",
-              "libs/payment/component/tsconfig.spec.json"
+              "libs/@@api/config/tsconfig.lib.json",
+              "libs/@@api/config/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/payment/component/**/*"]
+            "exclude": ["**/node_modules/**", "!libs/@@api/config/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/payment/component/jest.config.js",
-            "tsConfig": "libs/payment/component/tsconfig.spec.json",
+            "jestConfig": "libs/@@api/config/jest.config.js",
+            "tsConfig": "libs/@@api/config/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
       }
     },
-    "api-routers": {
-      "root": "libs/api/routers",
-      "sourceRoot": "libs/api/routers/src",
+    "@payment-service": {
+      "root": "libs/@payment/service",
+      "sourceRoot": "libs/@payment/service/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -311,17 +311,17 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "libs/api/routers/tsconfig.lib.json",
-              "libs/api/routers/tsconfig.spec.json"
+              "libs/@payment/service/tsconfig.lib.json",
+              "libs/@payment/service/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/api/routers/**/*"]
+            "exclude": ["**/node_modules/**", "!libs/@payment/service/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/api/routers/jest.config.js",
-            "tsConfig": "libs/api/routers/tsconfig.spec.json",
+            "jestConfig": "libs/@payment/service/jest.config.js",
+            "tsConfig": "libs/@payment/service/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
