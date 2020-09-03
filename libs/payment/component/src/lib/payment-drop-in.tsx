@@ -17,6 +17,8 @@ export class PaymentDropIn extends React.Component<{}, PaymentDropInState> {
     const response = await fetch('/api/payment/new');
     const clientToken = await response.text();
 
+    console.log('componentDidMount', response);
+
     this.setState({ clientToken });
   }
 
@@ -24,7 +26,7 @@ export class PaymentDropIn extends React.Component<{}, PaymentDropInState> {
     // Send the nonce to your server
     const { nonce } = await this.instance.requestPaymentMethod();
 
-    await fetch(`/api/payment`, {
+    const response = await fetch(`/api/payment`, {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -35,6 +37,9 @@ export class PaymentDropIn extends React.Component<{}, PaymentDropInState> {
         amount: '10.00',
       }),
     });
+
+    console.log('buy', response);
+
   }
 
   render() {
