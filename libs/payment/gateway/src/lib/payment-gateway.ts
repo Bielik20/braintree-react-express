@@ -38,12 +38,12 @@ export class PaymentGateway {
 
   private constructor(private gateway: BraintreeGateway) {}
 
-  async generateClientToken(customerId: string): Promise<string> {
+  async generateClientToken(customerId?: string): Promise<string> {
     const response = await this.gateway.clientToken.generate({
       customerId,
     });
 
-    console.log(response);
+    console.log('generateClientToken', response);
 
     return response.clientToken;
   }
@@ -60,7 +60,7 @@ export class PaymentGateway {
       options: { submitForSettlement: true },
     });
 
-    console.log(response);
+    console.log('sale', response);
 
     return response;
   }
@@ -68,7 +68,7 @@ export class PaymentGateway {
   async find(transactionId: string): Promise<Transaction> {
     const transaction = await this.gateway.transaction.find(transactionId);
 
-    console.log(transaction);
+    console.log('find', transaction);
 
     return transaction;
   }

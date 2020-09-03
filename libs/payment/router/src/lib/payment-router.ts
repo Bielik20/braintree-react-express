@@ -3,18 +3,14 @@ import { Router } from 'express';
 
 export const paymentRouter = Router();
 
-paymentRouter.get('/', (req, res) => {
-  res.redirect('/checkouts/new');
-});
-
-paymentRouter.get('/checkouts/new', async (req, res) => {
+paymentRouter.get('/new', async (req, res) => {
   const gateway = PaymentGateway.getInstance();
-  const token = await gateway.generateClientToken('TODO');
+  const token = await gateway.generateClientToken();
 
   res.send(token);
 });
 
-paymentRouter.get('/checkouts/:id', async (req, res) => {
+paymentRouter.get('/:id', async (req, res) => {
   const transactionId = req.params.id;
   const gateway = PaymentGateway.getInstance();
   const result = await gateway.find(transactionId);
@@ -22,9 +18,10 @@ paymentRouter.get('/checkouts/:id', async (req, res) => {
   res.send(result);
 });
 
-paymentRouter.post('/checkouts', async (req, res) => {
+paymentRouter.post('/', async (req, res) => {
   // In production you should not take amounts directly from clients
   const { amount, paymentMethodNonce } = req.body;
+  console.log(req.body);
   const gateway = PaymentGateway.getInstance();
   const result = await gateway.sale(amount, paymentMethodNonce);
 

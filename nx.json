@@ -46,6 +46,9 @@
     },
     "payment-component": {
       "tags": []
+    },
+    "api-routers": {
+      "tags": []
     }
   }
 }

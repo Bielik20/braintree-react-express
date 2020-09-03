@@ -1,28 +1,40 @@
 import { Dropin } from 'braintree-web-drop-in';
-import React from "react";
+import React from 'react';
 import { BraintreeDropIn } from './braintree-drop-in';
 
-export class PaymentDropIn extends React.Component {
-  instance: Dropin;
+interface PaymentDropInState {
+  clientToken?: string;
+}
 
+export class PaymentDropIn extends React.Component<{}, PaymentDropInState> {
   state = {
-    clientToken: null,
+    clientToken: undefined,
   };
+  private instance: Dropin;
 
   async componentDidMount() {
     // Get a client token for authorization from your server
-    const response = await fetch("server.test/client_token");
-    const clientToken = await response.json(); // If returned as JSON string
+    const response = await fetch('/api/payment/new');
+    const clientToken = await response.text();
 
-    this.setState({
-      clientToken,
-    });
+    this.setState({ clientToken });
   }
 
   async buy() {
     // Send the nonce to your server
     const { nonce } = await this.instance.requestPaymentMethod();
-    await fetch(`server.test/purchase/${nonce}`);
+
+    await fetch(`/api/payment`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        paymentMethodNonce: nonce,
+        amount: '10.00',
+      }),
+    });
   }
 
   render() {

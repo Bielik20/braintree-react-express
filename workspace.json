@@ -299,6 +299,33 @@
           }
         }
       }
+    },
+    "api-routers": {
+      "root": "libs/api/routers",
+      "sourceRoot": "libs/api/routers/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/api/routers/tsconfig.lib.json",
+              "libs/api/routers/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/api/routers/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/api/routers/jest.config.js",
+            "tsConfig": "libs/api/routers/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

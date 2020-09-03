@@ -28,7 +28,8 @@
       ],
       "@braintree-react-express/payment/component": [
         "libs/payment/component/src/index.ts"
-      ]
+      ],
+      "@braintree-react-express/api/routers": ["libs/api/routers/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
