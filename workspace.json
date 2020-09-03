@@ -68,10 +68,7 @@
               "apps/web-app/tsconfig.app.json",
               "apps/web-app/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/web-app/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/web-app/**/*"]
           }
         },
         "test": {
@@ -106,13 +103,8 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "tsConfig": [
-              "apps/web-app-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/web-app-e2e/**/*"
-            ]
+            "tsConfig": ["apps/web-app-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/web-app-e2e/**/*"]
           }
         }
       }
@@ -130,9 +122,7 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": [
-              "apps/api/src/assets"
-            ]
+            "assets": ["apps/api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -162,10 +152,7 @@
               "apps/api/tsconfig.app.json",
               "apps/api/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/api/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/api/**/*"]
           }
         },
         "test": {
@@ -192,10 +179,7 @@
               "libs/api-interfaces/tsconfig.lib.json",
               "libs/api-interfaces/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/api-interfaces/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**/*"]
           }
         },
         "test": {
@@ -222,10 +206,7 @@
               "libs/api/config/tsconfig.lib.json",
               "libs/api/config/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/api/config/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/api/config/**/*"]
           }
         },
         "test": {
@@ -252,10 +233,7 @@
               "libs/payment/router/tsconfig.lib.json",
               "libs/payment/router/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/payment/router/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/payment/router/**/*"]
           }
         },
         "test": {
@@ -282,10 +260,7 @@
               "libs/payment/gateway/tsconfig.lib.json",
               "libs/payment/gateway/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/payment/gateway/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/payment/gateway/**/*"]
           }
         },
         "test": {
@@ -293,6 +268,33 @@
           "options": {
             "jestConfig": "libs/payment/gateway/jest.config.js",
             "tsConfig": "libs/payment/gateway/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "payment-component": {
+      "root": "libs/payment/component",
+      "sourceRoot": "libs/payment/component/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/payment/component/tsconfig.lib.json",
+              "libs/payment/component/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/payment/component/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/payment/component/jest.config.js",
+            "tsConfig": "libs/payment/component/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }

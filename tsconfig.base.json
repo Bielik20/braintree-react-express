@@ -10,13 +10,8 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
@@ -24,19 +19,17 @@
       "@braintree-react-express/api-interfaces": [
         "libs/api-interfaces/src/index.ts"
       ],
-      "@braintree-react-express/api/config": [
-        "libs/api/config/src/index.ts"
-      ],
+      "@braintree-react-express/api/config": ["libs/api/config/src/index.ts"],
       "@braintree-react-express/payment/router": [
         "libs/payment/router/src/index.ts"
       ],
       "@braintree-react-express/payment/gateway": [
         "libs/payment/gateway/src/index.ts"
+      ],
+      "@braintree-react-express/payment/component": [
+        "libs/payment/component/src/index.ts"
       ]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }
