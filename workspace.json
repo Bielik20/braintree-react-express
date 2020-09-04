@@ -68,7 +68,10 @@
               "apps/web-app/tsconfig.app.json",
               "apps/web-app/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/web-app/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/web-app/**/*"
+            ]
           }
         },
         "test": {
@@ -103,8 +106,13 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "tsConfig": ["apps/web-app-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/web-app-e2e/**/*"]
+            "tsConfig": [
+              "apps/web-app-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/web-app-e2e/**/*"
+            ]
           }
         }
       }
@@ -122,7 +130,9 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": [
+              "apps/api/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -152,7 +162,10 @@
               "apps/api/tsconfig.app.json",
               "apps/api/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/api/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/api/**/*"
+            ]
           }
         },
         "test": {
@@ -179,7 +192,10 @@
               "libs/@payment/gateway/tsconfig.lib.json",
               "libs/@payment/gateway/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/@payment/gateway/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/@payment/gateway/**/*"
+            ]
           }
         },
         "test": {
@@ -206,7 +222,10 @@
               "libs/@payment/component/tsconfig.lib.json",
               "libs/@payment/component/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/@payment/component/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/@payment/component/**/*"
+            ]
           }
         },
         "test": {
@@ -215,6 +234,36 @@
             "jestConfig": "libs/@payment/component/jest.config.js",
             "tsConfig": "libs/@payment/component/tsconfig.spec.json",
             "passWithNoTests": true
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/@payment/component/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/@payment-component",
+            "config": {
+              "configFolder": "libs/@payment/component/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
           }
         }
       }
@@ -233,7 +282,10 @@
               "libs/@payment/router/tsconfig.lib.json",
               "libs/@payment/router/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/@payment/router/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/@payment/router/**/*"
+            ]
           }
         },
         "test": {
@@ -260,7 +312,10 @@
               "libs/@@api/routers/tsconfig.lib.json",
               "libs/@@api/routers/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/@@api/routers/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/@@api/routers/**/*"
+            ]
           }
         },
         "test": {
@@ -287,7 +342,10 @@
               "libs/@@api/config/tsconfig.lib.json",
               "libs/@@api/config/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/@@api/config/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/@@api/config/**/*"
+            ]
           }
         },
         "test": {
@@ -314,7 +372,10 @@
               "libs/@payment/service/tsconfig.lib.json",
               "libs/@payment/service/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/@payment/service/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/@payment/service/**/*"
+            ]
           }
         },
         "test": {
@@ -323,6 +384,39 @@
             "jestConfig": "libs/@payment/service/jest.config.js",
             "tsConfig": "libs/@payment/service/tsconfig.spec.json",
             "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "@payment-component-e2e": {
+      "root": "apps/@payment-component-e2e",
+      "sourceRoot": "apps/@payment-component-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/@payment-component-e2e/cypress.json",
+            "tsConfig": "apps/@payment-component-e2e/tsconfig.e2e.json",
+            "devServerTarget": "@payment-component:storybook"
+          },
+          "configurations": {
+            "ci": {
+              "devServerTarget": "@payment-component:storybook:ci"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/@payment-component-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/@payment-component-e2e/**/*"
+            ]
           }
         }
       }
