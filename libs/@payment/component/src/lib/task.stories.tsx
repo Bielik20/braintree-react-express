@@ -1,19 +1,12 @@
 import React from 'react';
-import { text } from '@storybook/addon-knobs';
-import Task from './task';
+import {PaymentDropIn} from './payment-drop-in';
 
 export default {
-  component: Task,
-  title: 'Task',
+  component: PaymentDropIn,
+  title: 'PaymentDropIn',
 };
 
 export const Default = () => {
-  const props = {
-    id: text('id', '1'),
-    title: text('title', 'Test Task'),
-    state: text('state', 'TASK_INBOX'),
-  };
-
-  return <Task {...props} />;
+  return <PaymentDropIn />;
 };
 
